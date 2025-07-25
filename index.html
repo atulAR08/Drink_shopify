@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+<body>
+    <div class="product-page">
+        <div class="product-images">
+            <div class="carousel">
+                <button id="prevBtn">&#8592;</button>
+                <img id="carouselImage" src="Drink_img1.webp">
+                <button id="nextBtn">&#8594;</button>
+              </div>
+              
+            
+            <div class="bottle-variants">
+                <div class="variant-bottle chocolate" onclick="changeMainBottle('chocolate')"><img id="bottle-variants-img" src="Drink_img1.webp"></div>
+                <div class="variant-bottle vanilla" onclick="changeMainBottle('vanilla')"><img id="bottle-variants-img" src="Drink_img2.webp"></div>
+                <div class="variant-bottle orange" onclick="changeMainBottle('orange')"><img id="bottle-variants-img" src="Drink_img3.webp"></div>
+                
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title">Flavoured Drinks</h1>
+            
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.5 (2000+)</span>
+            </div>
+
+            
+
+            <!-- Subscription Section -->
+            <div class="subscription-section">
+                <div class="subscription-container">
+                    <div class="header">Recommended</div>
+                    
+                    <div class="subscription-content">
+                        <div class="subscription-option selected" onclick="selectSubscription(this, 'single')">
+                            <input type="radio" name="subscription" value="single" checked>
+                            <span class="subscription-title">Single Drink Subscription</span>
+                            <div class="pricing">
+                                <span class="sub-current-price">$6.00</span>
+                                <span class="old-price">$10.00</span>
+                            </div>
+                        </div>
+
+
+                        <div class="subscription-option" onclick="selectSubscription(this, 'double')">
+                            <input type="radio" name="subscription" value="double">
+                            <span class="subscription-title">Double Drink Subscription</span>
+                            <div class="pricing">
+                                <span class="sub-current-price">$12.00</span>
+                                <span class="old-price">$20.00</span>
+                            </div>
+                        </div>
+
+                        <div class="flavor-section" id="singleFlavorSection">
+                            <div class="flavor-title">Choose Flavor</div>
+                            <div class="flavor-options">
+                                <div class="flavor-option selected" onclick="selectFlavor(this, 'chocolate')">
+                                    <input type="radio" name="flavor" value="chocolate" checked>
+                                    <div class="best-seller">Best Seller</div>
+                                    <div class="bottle chocolate"></div>
+                                    <div class="flavor-name">Chocolate</div>
+                                </div>
+                                
+                                
+                                <div class="flavor-option" onclick="selectFlavor(this, 'vanilla')">
+                                    <input type="radio" name="flavor" value="vanilla">
+                                    <div class="bottle vanilla"></div>
+                                    <div class="flavor-name">Vanilla</div>
+                                </div>
+                                
+                                <div class="flavor-option" onclick="selectFlavor(this, 'orange')">
+                                    <input type="radio" name="flavor" value="orange">
+                                    <div class="bottle orange"></div>
+                                    <div class="flavor-name">Orange</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Double Drink Subscription Content (Hidden by default) -->
+                        <div class="flavor-section" id="doubleFlavorSection" style="display: none;">
+                            <div class="flavor-title">Choose Flavor 1</div>
+                            <div class="flavor-options">
+                                <div class="flavor-option selected" onclick="selectDoubleFlavor(this, 'flavor1', 'chocolate')">
+                                    <input type="radio" name="flavor1" value="chocolate" checked>
+                                    <div class="best-seller">Best Seller</div>
+                                    <div class="bottle chocolate"></div>
+                                    <div class="flavor-name">Chocolate</div>
+                                </div>
+                                
+                                <div class="flavor-option" onclick="selectDoubleFlavor(this, 'flavor1', 'vanilla')">
+                                    <input type="radio" name="flavor1" value="vanilla">
+                                    <div class="bottle vanilla"></div>
+                                    <div class="flavor-name">Vanilla</div>
+                                </div>
+                                
+                                <div class="flavor-option" onclick="selectDoubleFlavor(this, 'flavor1', 'orange')">
+                                    <input type="radio" name="flavor1" value="orange">
+                                    <div class="bottle orange"></div>
+                                    <div class="flavor-name">Orange</div>
+                                </div>
+                            </div>
+
+                            <div class="flavor-title" style="margin-top: 20px;">Choose Flavor 2</div>
+                            <div class="flavor-options">
+                                <div class="flavor-option selected" onclick="selectDoubleFlavor(this, 'flavor2', 'chocolate')">
+                                    <input type="radio" name="flavor2" value="chocolate" checked>
+                                    <div class="best-seller">Best Seller</div>
+                                    <div class="bottle chocolate"></div>
+                                    <div class="flavor-name">Chocolate</div>
+                                </div>
+                                
+                                <div class="flavor-option" onclick="selectDoubleFlavor(this, 'flavor2', 'vanilla')">
+                                    <input type="radio" name="flavor2" value="vanilla">
+                                    <div class="bottle vanilla"></div>
+                                    <div class="flavor-name">Vanilla</div>
+                                </div>
+                                
+                                <div class="flavor-option" onclick="selectDoubleFlavor(this, 'flavor2', 'orange')">
+                                    <input type="radio" name="flavor2" value="orange">
+                                    <div class="bottle orange"></div>
+                                    <div class="flavor-name">Orange</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="whats-included">
+                            <h4>What's Included:</h4>
+                            <div id="singleIncluded">
+                                <!-- Single subscription content -->
+                            </div>
+                            <div id="doubleIncluded" style="display: none;">
+                                <div class="delivery-options" style="margin-top: 16px;">
+                                    <div class="delivery-option">
+                                        <div class="delivery-title">Every 30 Days</div>
+                                        <div class="bottles-grid">
+                                            <div class="small-bottle chocolate" id="recurringBottle1"></div>
+                                            <div class="small-bottle vanilla" id="recurringBottle2"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="delivery-option">
+                                        <div class="delivery-title">One Time <span class="free-badge" style="color: #8B7355; font-weight: 600;">(Free)</span></div>
+                                        <div class="bottles-grid" id="freeBottles">
+                                            <div class="small-bottle chocolate"></div>
+                                            <div class="small-bottle vanilla"></div>
+                                            <div class="small-bottle orange"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <ul style="list-style: none; margin-top: 16px; padding: 0;">
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 12px; color: #666;">
+                                        <span style="color: #8B7355; font-weight: bold;">✓</span> Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit.
+                                    </li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 12px; color: #666;">
+                                        <span style="color: #8B7355; font-weight: bold;">✓</span> Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit.
+                                    </li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 12px; color: #666;">
+                                        <span style="color: #8B7355; font-weight: bold;">✓</span> Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="about-section">
+                <h2 class="about-title">About the drink:</h2>
+                <p class="about-text">
+                    Let's be honest – finding the perfect drink that actually tastes good AND fits your routine is harder than it should be. That's where we come in. Our subscription isn't just about flavors (though chocolate, vanilla, and orange are pretty amazing). It's about those little moments that make your day better. Maybe it's the chocolate that gets you through afternoon meetings, or the orange that kicks off your morning right. We've spent way too much time perfecting these recipes because we're picky about what we drink too. Pick your flavors, choose your plan, and let's make your taste buds happy.  
+                </p>
+
+                <div class="product-details">
+                    <div class="detail-item">
+                        Choose a flavour: 
+                        <select class="dropdown">
+                            <option>Select a flavour</option>
+                            <option>Chocolate</option>
+                            <option>Vanilla</option>
+                            <option>Orange</option>
+                        </select>
+                    </div>
+                    <div class="detail-item">Available: In stock</div>
+                    <div class="detail-item">Category: Drinks</div>
+                    <div class="detail-item">Shipping Area: All over the world</div>
+                </div>
+
+                <div class="badges">
+                    <span class="badge badge-blue">Add to cart</span>
+                    <span class="badge badge-red">Compare</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
