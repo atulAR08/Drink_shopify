@@ -1,3 +1,4 @@
+
 function selectSubscription(element, type) {
     // Remove selected class from all subscription options
     document.querySelectorAll('.subscription-option').forEach(option => {
@@ -90,8 +91,29 @@ function updateDoubleSubscriptionDisplay() {
 }
 
 function changeMainBottle(flavor) {
-    const mainBottle = document.getElementById('mainBottle');
-    mainBottle.className = `main-bottle ${flavor}`;
+    const carouselImage = document.getElementById('carouselImage');
+    if (carouselImage) {
+        const flavorImages = {
+            'chocolate': 'Drink_img1.webp',
+            'vanilla': 'Drink_img2.webp',
+            'orange': 'Drink_img3.webp'
+        };
+        carouselImage.src = flavorImages[flavor] || 'Drink_img1.webp';
+    }
+}
+function updateDropdown(flavor) {
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown) {
+        // Set the dropdown value to match the selected flavor
+        const options = dropdown.options;
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].value.toLowerCase() === flavor || 
+                options[i].text.toLowerCase() === flavor) {
+                dropdown.selectedIndex = i;
+                break;
+            }
+        }
+    }
 }
 
 // Initialize
@@ -110,10 +132,28 @@ const images = [
   const carouselImage = document.getElementById('carouselImage');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+  const thumbnailsContainer = document.getElementById('thumbnails');
   
   function showImage(index) {
     carouselImage.src = images[index];
+    updateThumbnails();
   }
+  function updateThumbnails() {
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach((thumb, idx) => {
+      thumb.classList.toggle('active', idx === currentIndex);
+    });
+  }
+  images.forEach((imgSrc, idx) => {
+    const thumb = document.createElement('img');
+    thumb.src = imgSrc;
+    thumb.className = 'thumbnail';
+    thumb.onclick = () => {
+      currentIndex = idx;
+      showImage(currentIndex);
+    };
+   
+  });
   
   prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -124,3 +164,4 @@ const images = [
     currentIndex = (currentIndex + 1) % images.length;
     showImage(currentIndex);
   });
+  showImage(currentIndex);
