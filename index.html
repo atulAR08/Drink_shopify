@@ -10,19 +10,28 @@
 <body>
     <div class="product-page">
         <div class="product-images">
-            <div class="carousel">
-                <button id="prevBtn">&#8592;</button>
-                <img id="carouselImage" src="Drink_img1.webp">
-                <button id="nextBtn">&#8594;</button>
-              </div>
-              
             
-            <div class="bottle-variants">
-                <div class="variant-bottle chocolate" onclick="changeMainBottle('chocolate')"><img id="bottle-variants-img" src="Drink_img1.webp"></div>
-                <div class="variant-bottle vanilla" onclick="changeMainBottle('vanilla')"><img id="bottle-variants-img" src="Drink_img2.webp"></div>
-                <div class="variant-bottle orange" onclick="changeMainBottle('orange')"><img id="bottle-variants-img" src="Drink_img3.webp"></div>
-                
-            </div>
+<div class="carousel">
+    <div class="carousel-controls">
+        <button id="prevBtn">&#8592;</button>
+        <img id="carouselImage" src="Drink_img1.webp">
+        <button id="nextBtn">&#8594;</button>
+    </div>
+    
+</div>
+
+<div class="bottle-variants">
+    
+    <div class="variant-bottle chocolate" onclick="changeMainBottle('chocolate')">
+        <img class="bottle-variants-img" src="Drink_img1.webp">
+    </div>
+    <div class="variant-bottle vanilla" onclick="changeMainBottle('vanilla')">
+        <img class="bottle-variants-img" src="Drink_img2.webp">
+    </div>
+    <div class="variant-bottle orange" onclick="changeMainBottle('orange')">
+        <img class="bottle-variants-img" src="Drink_img3.webp">
+    </div>
+</div>
         </div>
 
         <div class="product-info">
