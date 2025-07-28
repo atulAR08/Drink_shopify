@@ -5,10 +5,10 @@ function selectSubscription(element, type) {
         option.classList.remove('selected');
     });
     
-    // Add selected class to clicked option
+   
     element.classList.add('selected');
     
-    // Check the radio button
+    
     element.querySelector('input[type="radio"]').checked = true;
     
     // Show/hide appropriate flavor sections
@@ -32,32 +32,30 @@ function selectSubscription(element, type) {
 }
 
 function selectFlavor(element, flavor) {
-    // Remove selected class from all single flavor options
     document.querySelectorAll('#singleFlavorSection .flavor-option').forEach(option => {
         option.classList.remove('selected');
     });
     
-    // Add selected class to clicked option
+  
     element.classList.add('selected');
-    
-    // Check the radio button
+   
     element.querySelector('input[type="radio"]').checked = true;
     
-    // Update main bottle color to match selected flavor
+    
     changeMainBottle(flavor);
      updateDropdown(flavor);
 }
 
 function selectDoubleFlavor(element, flavorGroup, flavor) {
-    // Remove selected class from all options in the same flavor group
+    
     document.querySelectorAll(`input[name="${flavorGroup}"]`).forEach(input => {
         input.closest('.flavor-option').classList.remove('selected');
     });
     
-    // Add selected class to clicked option
+   
     element.classList.add('selected');
     
-    // Check the radio button
+   
     element.querySelector('input[type="radio"]').checked = true;
     
     // Update displays for double subscription
@@ -104,7 +102,7 @@ function changeMainBottle(flavor) {
 function updateDropdown(flavor) {
     const dropdown = document.querySelector('.dropdown');
     if (dropdown) {
-        // Set the dropdown value to match the selected flavor
+       
         const options = dropdown.options;
         for (let i = 0; i < options.length; i++) {
             if (options[i].value.toLowerCase() === flavor || 
@@ -125,7 +123,7 @@ const images = [
     'Drink_img1.webp',
     'Drink_img2.webp',
     'Drink_img3.webp'
-    // Add more image paths as needed
+  
   ];
   
   let currentIndex = 0;
